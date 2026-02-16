@@ -65,4 +65,150 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.5 });
   counters.forEach(el => counterObs.observe(el));
+
+  // MRR vs Burn Rate Chart
+  const canvas = document.getElementById('mrrChart');
+  if (canvas) {
+    const chartObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          renderMRRChart(canvas);
+          chartObs.unobserve(canvas);
+        }
+      });
+    }, { threshold: 0.3 });
+    chartObs.observe(canvas);
+  }
 });
+
+function renderMRRChart(canvas) {
+  const ctx = canvas.getContext('2d');
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width * dpr;
+  canvas.height = rect.height * dpr;
+  ctx.scale(dpr, dpr);
+  const W = rect.width, H = rect.height;
+
+  // Data: 24 months
+  const months = Array.from({ length: 24 }, (_, i) => i + 1);
+  // MRR growth: starts slow, ramps up (SaaS Year 1, then Enterprise kicks in Year 2)
+  const mrr = [
+    2, 5, 8, 12, 17, 22, 28, 33, 38, 42, 46, 50,     // Year 1: SaaS ramp
+    55, 62, 70, 80, 92, 105, 118, 130, 140, 148, 155, 160  // Year 2: Enterprise
+  ];
+  const burn = Array(24).fill(55); // ~$55K/month burn
+
+  const pad = { top: 40, right: 30, bottom: 45, left: 55 };
+  const gW = W - pad.left - pad.right;
+  const gH = H - pad.top - pad.bottom;
+  const maxY = 180;
+  const xScale = i => pad.left + (i / 23) * gW;
+  const yScale = v => pad.top + gH - (v / maxY) * gH;
+
+  // Grid lines
+  ctx.strokeStyle = 'rgba(255,255,255,0.05)';
+  ctx.lineWidth = 1;
+  for (let v = 0; v <= maxY; v += 30) {
+    const y = yScale(v);
+    ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    ctx.fillStyle = '#64748b'; ctx.font = '11px Inter, sans-serif'; ctx.textAlign = 'right';
+    ctx.fillText(`$${v}K`, pad.left - 8, y + 4);
+  }
+  // X labels
+  ctx.textAlign = 'center'; ctx.fillStyle = '#64748b'; ctx.font = '11px Inter, sans-serif';
+  for (let i = 0; i < 24; i += 3) {
+    ctx.fillText(`M${i + 1}`, xScale(i), H - pad.bottom + 20);
+  }
+  // Year markers
+  ctx.fillStyle = 'rgba(59,130,246,0.15)'; ctx.font = '10px Inter';
+  ctx.fillText('← Năm 1 (SaaS) →', xScale(5.5), H - 5);
+  ctx.fillStyle = 'rgba(16,185,129,0.15)';
+  ctx.fillText('← Năm 2 (Enterprise) →', xScale(17.5), H - 5);
+
+  // Animate drawing
+  let progress = 0;
+  const totalFrames = 60;
+  function animate() {
+    progress++;
+    const pct = Math.min(progress / totalFrames, 1);
+    const ease = 1 - Math.pow(1 - pct, 3); // easeOutCubic
+    const pts = Math.floor(ease * 24);
+
+    // Clear chart area
+    ctx.clearRect(pad.left, pad.top - 5, gW + 5, gH + 10);
+    // Redraw grid
+    ctx.strokeStyle = 'rgba(255,255,255,0.05)'; ctx.lineWidth = 1;
+    for (let v = 0; v <= maxY; v += 30) {
+      const y = yScale(v);
+      ctx.beginPath(); ctx.moveTo(pad.left, y); ctx.lineTo(W - pad.right, y); ctx.stroke();
+    }
+
+    // Burn rate line (red, dashed)
+    ctx.setLineDash([6, 4]);
+    ctx.strokeStyle = '#f43f5e'; ctx.lineWidth = 2;
+    ctx.beginPath();
+    for (let i = 0; i < pts; i++) {
+      const x = xScale(i), y = yScale(burn[i]);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // MRR line (blue gradient)
+    ctx.strokeStyle = '#3b82f6'; ctx.lineWidth = 3;
+    ctx.beginPath();
+    for (let i = 0; i < pts; i++) {
+      const x = xScale(i), y = yScale(mrr[i]);
+      i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+    }
+    ctx.stroke();
+
+    // MRR fill
+    if (pts > 1) {
+      ctx.beginPath();
+      ctx.moveTo(xScale(0), yScale(mrr[0]));
+      for (let i = 1; i < pts; i++) ctx.lineTo(xScale(i), yScale(mrr[i]));
+      ctx.lineTo(xScale(pts - 1), yScale(0));
+      ctx.lineTo(xScale(0), yScale(0));
+      ctx.closePath();
+      const grad = ctx.createLinearGradient(0, pad.top, 0, pad.top + gH);
+      grad.addColorStop(0, 'rgba(59,130,246,0.15)');
+      grad.addColorStop(1, 'rgba(59,130,246,0)');
+      ctx.fillStyle = grad;
+      ctx.fill();
+    }
+
+    // Break-even marker (around month 16-17)
+    if (pts >= 16) {
+      const bx = xScale(15), by = yScale(burn[15]);
+      ctx.beginPath(); ctx.arc(bx, by, 6, 0, Math.PI * 2);
+      ctx.fillStyle = '#10b981'; ctx.fill();
+      ctx.strokeStyle = '#0a0e1a'; ctx.lineWidth = 2; ctx.stroke();
+      ctx.fillStyle = '#10b981'; ctx.font = 'bold 11px Inter';
+      ctx.textAlign = 'left';
+      ctx.fillText('⬆ Break-even', bx + 12, by - 8);
+    }
+
+    // Dots on current endpoints
+    if (pts > 0) {
+      const lastIdx = pts - 1;
+      // MRR dot
+      ctx.beginPath(); ctx.arc(xScale(lastIdx), yScale(mrr[lastIdx]), 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#3b82f6'; ctx.fill();
+      // Burn dot
+      ctx.beginPath(); ctx.arc(xScale(lastIdx), yScale(burn[lastIdx]), 4, 0, Math.PI * 2);
+      ctx.fillStyle = '#f43f5e'; ctx.fill();
+    }
+
+    if (progress < totalFrames) requestAnimationFrame(animate);
+    else {
+      // Legend
+      ctx.fillStyle = '#3b82f6'; ctx.font = 'bold 12px Inter'; ctx.textAlign = 'left';
+      ctx.fillText('● MRR', pad.left + 10, pad.top - 15);
+      ctx.fillStyle = '#f43f5e';
+      ctx.fillText('- - Burn Rate (~$55K/m)', pad.left + 80, pad.top - 15);
+    }
+  }
+  animate();
+}
