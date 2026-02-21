@@ -856,6 +856,10 @@ tr:hover td {
 }
 
 /* Tooltips */
+.pricing-card {
+  overflow: visible !important;
+}
+
 .tooltip-wrap {
   position: relative;
   cursor: help;
@@ -869,8 +873,10 @@ tr:hover td {
 
 .tooltip-wrap .tooltip-box {
   display: none;
-  position: fixed;
-  z-index: 1000;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 50;
   background: #1a2233;
   border: 1px solid rgba(59, 130, 246, 0.4);
   border-radius: 10px;
@@ -878,10 +884,9 @@ tr:hover td {
   width: 280px;
   font-size: 0.8rem;
   font-weight: 400;
-  color: var(--text-secondary);
+  color: #94a3b8;
   line-height: 1.6;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
-  pointer-events: none;
 }
 
 .tooltip-wrap:hover .tooltip-box {
