@@ -66,6 +66,26 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach(el => counterObs.observe(el));
 
+  // Instant tooltip (no delay, appended to body to avoid overflow clipping)
+  const tipEl = document.createElement('div');
+  tipEl.id = 'js-tooltip';
+  tipEl.style.cssText = 'display:none;position:fixed;z-index:9999;background:#1a2233;border:1px solid rgba(59,130,246,0.4);border-radius:10px;padding:12px 16px;max-width:300px;font-size:0.8rem;color:#94a3b8;line-height:1.6;box-shadow:0 8px 32px rgba(0,0,0,0.6);pointer-events:none;font-family:Inter,sans-serif';
+  document.body.appendChild(tipEl);
+
+  document.querySelectorAll('[data-tip]').forEach(el => {
+    el.addEventListener('mouseenter', e => {
+      tipEl.textContent = el.getAttribute('data-tip');
+      tipEl.style.display = 'block';
+      const r = el.getBoundingClientRect();
+      let top = r.bottom + 8, left = r.left;
+      if (top + 120 > window.innerHeight) top = r.top - 120;
+      if (left + 300 > window.innerWidth) left = window.innerWidth - 310;
+      tipEl.style.top = top + 'px';
+      tipEl.style.left = Math.max(10, left) + 'px';
+    });
+    el.addEventListener('mouseleave', () => { tipEl.style.display = 'none'; });
+  });
+
   // MRR vs Burn Rate Chart
   const canvas = document.getElementById('mrrChart');
   if (canvas) {
