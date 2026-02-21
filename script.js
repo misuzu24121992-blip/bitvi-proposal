@@ -117,7 +117,7 @@ function renderMRRChart(canvas) {
     1, 3, 5, 7, 10, 14, 17, 20, 23, 26, 30, 33,     // Year 1: SaaS ramp (~$259K)
     38, 44, 50, 58, 68, 80, 95, 110, 125, 138, 150, 160  // Year 2: Enterprise
   ];
-  const burn = Array(24).fill(45); // ~$45K/month burn (conservative)
+  const burn = Array(24).fill(35); // ~$35K/month burn (10-person team)
 
   const pad = { top: 40, right: 30, bottom: 45, left: 55 };
   const gW = W - pad.left - pad.right;
@@ -199,9 +199,9 @@ function renderMRRChart(canvas) {
       ctx.fill();
     }
 
-    // Break-even marker (around month 20-21)
-    if (pts >= 19) {
-      const bx = xScale(18), by = yScale(burn[18]);
+    // Break-even marker (around month 14-15, Q2-Q3/2027)
+    if (pts >= 14) {
+      const bx = xScale(13), by = yScale(burn[13]);
       ctx.beginPath(); ctx.arc(bx, by, 6, 0, Math.PI * 2);
       ctx.fillStyle = '#10b981'; ctx.fill();
       ctx.strokeStyle = '#0a0e1a'; ctx.lineWidth = 2; ctx.stroke();
@@ -227,7 +227,7 @@ function renderMRRChart(canvas) {
       ctx.fillStyle = '#3b82f6'; ctx.font = 'bold 12px Inter'; ctx.textAlign = 'left';
       ctx.fillText('● MRR', pad.left + 10, pad.top - 15);
       ctx.fillStyle = '#f43f5e';
-      ctx.fillText('- - Burn Rate (~$45K/m)', pad.left + 80, pad.top - 15);
+      ctx.fillText('- - Burn Rate (~$35K/m)', pad.left + 80, pad.top - 15);
     }
   }
   animate();
