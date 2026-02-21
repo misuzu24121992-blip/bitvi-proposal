@@ -66,6 +66,27 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.5 });
   counters.forEach(el => counterObs.observe(el));
 
+  // Tooltip positioning (fixed to avoid card overflow clipping)
+  document.querySelectorAll('.tooltip-wrap').forEach(wrap => {
+    wrap.addEventListener('mouseenter', () => {
+      const box = wrap.querySelector('.tooltip-box');
+      if (!box) return;
+      const rect = wrap.getBoundingClientRect();
+      const boxH = 120; // approximate height
+      // show above if enough space, else below
+      if (rect.top > boxH + 20) {
+        box.style.top = (rect.top - boxH - 8) + 'px';
+      } else {
+        box.style.top = (rect.bottom + 8) + 'px';
+      }
+      // center horizontally, clamp to viewport
+      let left = rect.left;
+      if (left + 280 > window.innerWidth) left = window.innerWidth - 290;
+      if (left < 10) left = 10;
+      box.style.left = left + 'px';
+    });
+  });
+
   // MRR vs Burn Rate Chart
   const canvas = document.getElementById('mrrChart');
   if (canvas) {
