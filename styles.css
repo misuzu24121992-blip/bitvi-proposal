@@ -855,6 +855,40 @@ tr:hover td {
   color: var(--accent-amber);
 }
 
+/* Tooltips */
+.tooltip-wrap {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip-wrap .tooltip-icon {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  margin-left: 4px;
+}
+
+.tooltip-wrap .tooltip-box {
+  display: none;
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 0;
+  z-index: 10;
+  background: var(--bg-secondary);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  width: 300px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tooltip-wrap:hover .tooltip-box {
+  display: block;
+}
+
 .pill-purple {
   background: rgba(139, 92, 246, 0.15);
   color: var(--accent-purple);
