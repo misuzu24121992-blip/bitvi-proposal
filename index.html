@@ -42,7 +42,7 @@
       <p>Đề xuất chiến lược kinh doanh toàn diện cho BitVi – Nền tảng lưu ký tài sản số hàng đầu Việt Nam</p>
       <div class="hero-stats">
         <div class="hero-stat">
-          <div class="number" data-count="0.55" data-prefix="$" data-suffix="M">$0</div>
+          <div class="number" data-count="0.30" data-prefix="$" data-suffix="M">$0</div>
           <div class="label">Doanh thu dự kiến Năm 1</div>
         </div>
         <div class="hero-stat">
@@ -103,6 +103,17 @@
         này: <span style="color:var(--accent-blue)">Tuân thủ pháp lý</span>, <span
           style="color:var(--accent-emerald)">Chi phí hợp lý</span>, và <span style="color:var(--accent-purple)">Quản lý
           key chuyên nghiệp</span>.</p>
+    </div>
+    <div class="card reveal"
+      style="margin-top:24px;background:linear-gradient(135deg,rgba(245,158,11,0.1),rgba(244,63,94,0.06));border:1px solid rgba(245,158,11,0.3)">
+      <h3 style="font-size:1rem;color:var(--accent-amber);margin-bottom:12px">⏰ TẠI SAO PHẢI LÀ LÚC NÀY (WHY NOW?)</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;font-size:0.85rem;color:var(--text-secondary)">
+        <div><strong style="color:var(--accent-amber)">📜 Hành lang pháp lý đang mở:</strong> Luật Công nghiệp Công nghệ
+          Số 2026 và Sandbox của NHNN (2025) đang tạo ra cuộc đua giành giấy phép tài sản số.</div>
+        <div><strong style="color:var(--accent-rose)">🏆 Lợi thế tiên phong:</strong> Các định chế tài chính bắt buộc
+          phải có hạ tầng Custody tuân thủ luật nội địa để nộp hồ sơ Sandbox. Đây là thời điểm <em>"Now or Never"</em>
+          để BitVi chốt đối tác chiến lược.</div>
+      </div>
     </div>
   </section>
 
@@ -310,6 +321,15 @@
           </div>
         </div>
       </div>
+      <div class="card reveal" style="margin-top:24px;border-left:3px solid #ef4444">
+        <h3 style="font-size:1rem;color:#ef4444;margin-bottom:8px">🛡️ Kế hoạch Ứng phó thảm họa (Disaster Recovery)
+        </h3>
+        <p style="font-size:0.85rem;color:var(--text-secondary)">BitVi trang bị cơ chế <strong>Kill Switch</strong> và
+          <strong>Offline Recovery Tool</strong> (Mã nguồn mở) cho mô hình Hybrid. Trong kịch bản tồi tệ nhất (Cloud
+          BitVi gián đoạn), Ngân hàng vẫn sử dụng Key Shards lưu tại máy chủ nội bộ kết hợp công cụ khôi phục để <em>tự
+            lấy lại Private Key và rút tiền độc lập</em>. Tài sản <strong>không bao giờ bị "khóa chết"</strong>.
+        </p>
+      </div>
   </section>
 
   <!-- 3. Packages -->
@@ -337,8 +357,9 @@
           <li>Policy cố định, max 5 rules</li>
           <li>2 users (1 Admin + 1 Operator)</li>
           <li>Giao dịch tối đa $50K/ngày</li>
-          <li>200 tx/tháng included, +$3/tx vượt</li>
+          <li>200 tx/tháng included (tiered overage)</li>
           <li>SLA 99.5%, Ticket support (48h)</li>
+          <li style="color:var(--accent-blue);font-weight:600">🛡️ Bảo vệ TVL: Tối đa $5M</li>
           <li class="disabled">Velocity Limits / Timelocks</li>
           <li class="disabled">Compliance Hooks (KYT/AML)</li>
           <li class="disabled">Bảo hiểm</li>
@@ -359,10 +380,11 @@
           <li>Velocity Limits & Timelocks</li>
           <li>10 users, Hot + Warm Wallet</li>
           <li>Giao dịch tối đa $500K/ngày</li>
-          <li>1,000 tx/tháng included, +$2/tx vượt</li>
+          <li>1,000 tx/tháng included (tiered overage)</li>
           <li>Bảo hiểm $1M (shared pool)</li>
           <li>SLA 99.9%, Hotline 24/7</li>
           <li>Signed Snapshots audit</li>
+          <li style="color:var(--accent-purple);font-weight:600">🛡️ Bảo vệ TVL: Tối đa $50M</li>
           <li class="disabled">Compliance Hooks (KYT/AML)</li>
         </ul>
       </div>
@@ -381,11 +403,12 @@
           <li>Compliance Hooks: KYT/AML, Travel Rule</li>
           <li>50 users, Hot + Warm + Cold Wallet</li>
           <li>Giao dịch tối đa $5M/ngày</li>
-          <li>5,000 tx/tháng included, +$1.5/tx vượt</li>
+          <li>5,000 tx/tháng included (tiered overage)</li>
           <li>Full Coverage bảo hiểm</li>
           <li>SLA 99.95%, Priority 24/7</li>
           <li>Merkle Root Proofs hàng ngày</li>
           <li>Tokenization & White-label (add-on)</li>
+          <li style="color:var(--accent-cyan);font-weight:600">🛡️ Bảo vệ TVL: Tối đa $200M</li>
         </ul>
       </div>
       <div class="pricing-card featured">
@@ -408,8 +431,15 @@
           <li>SLA 99.99%, Dedicated Account Manager</li>
           <li>Core Banking Integration</li>
           <li>Kill Switch – NH giữ toàn quyền</li>
+          <li style="color:var(--accent-emerald);font-weight:600">🛡️ Bảo vệ TVL: KHÔNG GIỚI HẠN</li>
         </ul>
       </div>
+    </div>
+    <div class="reveal"
+      style="margin-top:20px;padding:16px 24px;background:rgba(59,130,246,0.06);border-radius:12px;border:1px dashed rgba(59,130,246,0.3)">
+      <p style="font-size:0.9rem;color:var(--text-primary)"><strong>📦 Tùy chọn nâng cấp:</strong> Gói Essential có thể
+        mua thêm <span style="color:var(--accent-blue);font-weight:700">Growth Booster Add-on (+$500/tháng)</span>: Thêm
+        500 tx/tháng, +5 Ví, +2 Users, nâng trần TVL lên $15M.</p>
     </div>
 
     <!-- Detailed Fee Breakdown -->
@@ -458,10 +488,10 @@
                 <td>Bao gồm trong phí thuê bao</td>
               </tr>
               <tr>
-                <td>Phí vượt tx</td>
-                <td class="table-highlight">$3/tx</td>
+                <td>Phí vượt tx (bậc thang)</td>
+                <td class="table-highlight">$1.00 → $0.10/tx</td>
                 <td>Hàng tháng</td>
-                <td>Từ tx thứ 201 trở lên</td>
+                <td>1-1K: $1 | 1K-5K: $0.50 | 5K+: $0.10</td>
               </tr>
               <tr>
                 <td>Blockchain fee</td>
@@ -522,10 +552,10 @@
                 <td>Bao gồm trong thuê bao</td>
               </tr>
               <tr>
-                <td>Phí vượt tx</td>
-                <td class="table-highlight">$2/tx</td>
+                <td>Phí vượt tx (bậc thang)</td>
+                <td class="table-highlight">$1.00 → $0.10/tx</td>
                 <td>Hàng tháng</td>
-                <td>Từ tx thứ 1,001</td>
+                <td>1-1K: $1 | 1K-5K: $0.50 | 5K+: $0.10</td>
               </tr>
               <tr>
                 <td>User phụ trội</td>
@@ -580,10 +610,10 @@
                 <td>Bao gồm trong thuê bao</td>
               </tr>
               <tr>
-                <td>Phí vượt tx</td>
-                <td class="table-highlight">$1.5/tx</td>
+                <td>Phí vượt tx (bậc thang)</td>
+                <td class="table-highlight">$1.00 → $0.10/tx</td>
                 <td>Hàng tháng</td>
-                <td>Từ tx thứ 5,001</td>
+                <td>1-1K: $1 | 1K-5K: $0.50 | 5K+: $0.10</td>
               </tr>
               <tr>
                 <td>Chainalysis KYT</td>
@@ -835,9 +865,19 @@
             <th>BitGo 🇺🇸</th>
             <th>Coinbase 🇺🇸</th>
             <th>Copper.co 🇬🇧</th>
+            <th>Tự xây (In-house)</th>
           </tr>
         </thead>
         <tbody>
+          <tr>
+            <td style="color:var(--accent-amber);font-weight:700">Trách nhiệm pháp lý</td>
+            <td class="table-highlight">🇻🇳 Pháp nhân VN</td>
+            <td>🇺🇸 Nước ngoài</td>
+            <td>🇺🇸 Nước ngoài</td>
+            <td>🇺🇸 Nước ngoài</td>
+            <td>🇬🇧 Nước ngoài</td>
+            <td>Tự chịu 100%</td>
+          </tr>
           <tr>
             <td>Mô hình</td>
             <td class="table-highlight">SaaS + Hybrid + On-Prem</td>
@@ -845,14 +885,16 @@
             <td>SaaS + API</td>
             <td>Centralized</td>
             <td>SaaS + Hybrid</td>
+            <td>Multisig thủ công</td>
           </tr>
           <tr>
             <td>Policy Engine</td>
-            <td class="table-highlight">✅ On-chain (Cosmos SDK)</td>
-            <td>⚡ SGX/TEE (Tốc độ cao)</td>
+            <td class="table-highlight">✅ On-chain Cosmos (Minh bạch, dễ Audit)</td>
+            <td>⚡ SGX/TEE (Nhanh, Black-box)</td>
             <td>⚡ Off-chain</td>
             <td>❗ Centralized</td>
             <td>⚡ Off-chain</td>
+            <td>Hard-code SC (Thiếu linh hoạt)</td>
           </tr>
           <tr>
             <td style="color:var(--accent-emerald);font-weight:700">Data Sovereignty 🇻🇳</td>
@@ -861,6 +903,7 @@
             <td>❌ Key ngoài VN</td>
             <td>❌ Key ngoài VN</td>
             <td>❌ Key ngoài VN</td>
+            <td>✅ Tại chỗ</td>
           </tr>
           <tr>
             <td>Hybrid/On-Prem</td>
@@ -869,6 +912,7 @@
             <td>❌</td>
             <td>❌</td>
             <td>⚠️ Limited</td>
+            <td>✅ Tại chỗ</td>
           </tr>
           <tr>
             <td>Subscription</td>
@@ -877,14 +921,16 @@
             <td>Custom</td>
             <td>Custom</td>
             <td>Custom</td>
+            <td>❌ Ẩn & Rất cao</td>
           </tr>
           <tr>
             <td>Phí Usage</td>
-            <td class="table-highlight">Tx Volume ($1.5–$3/tx)</td>
+            <td class="table-highlight">Tiered ($0.10–$1/tx)</td>
             <td>N/A</td>
             <td>~0.6%/AUM/năm</td>
             <td>0.5%/AUM/năm</td>
             <td>Custom</td>
+            <td>❌ Tự gánh</td>
           </tr>
           <tr>
             <td>Compliance VN</td>
@@ -893,6 +939,7 @@
             <td>❌</td>
             <td>❌</td>
             <td>❌</td>
+            <td>⚠️ Tự đánh giá</td>
           </tr>
           <tr>
             <td>Tiếng Việt</td>
@@ -901,6 +948,7 @@
             <td>❌</td>
             <td>❌</td>
             <td>❌</td>
+            <td>✅</td>
           </tr>
           <tr>
             <td>On-site VN</td>
@@ -909,6 +957,7 @@
             <td>❌</td>
             <td>❌</td>
             <td>❌</td>
+            <td>✅</td>
           </tr>
           <tr>
             <td>Chứng chỉ</td>
@@ -917,6 +966,7 @@
             <td>SOC 2, CCSS L3</td>
             <td>SOC 2, NY Trust</td>
             <td>SOC 2</td>
+            <td>❌ Không</td>
           </tr>
         </tbody>
       </table>
@@ -1045,7 +1095,7 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-period" style="color:var(--accent-blue)">3 tháng đầu – Q1/2026</div>
-        <div class="timeline-title">Foundation</div>
+        <div class="timeline-title">Foundation – Chiến lược Parallel Tracks</div>
         <div class="card" style="margin-top:12px">
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
             <span class="compare-pill pill-blue">5 KH đầu tiên</span>
@@ -1056,8 +1106,9 @@
             <div><strong style="color:var(--accent-blue);font-size:0.8rem">Product</strong>
               <p>Hoàn thiện Essential + Pro, API docs, Sandbox compliance</p>
             </div>
-            <div><strong style="color:var(--accent-purple);font-size:0.8rem">Sales</strong>
-              <p>20 leads Startup/Web3, 3 pilot miễn phí, convert 5 khách trả phí</p>
+            <div><strong style="color:var(--accent-purple);font-size:0.8rem">Sales (Parallel Tracks)</strong>
+              <p><strong>Track 1:</strong> Team Sales chốt nhanh tệp SaaS (Startup/Web3) để lấy MRR. <strong>Track
+                  2:</strong> Founders đích thân gõ cửa C-Level 5 NH để chào PoC.</p>
             </div>
             <div><strong style="color:var(--accent-emerald);font-size:0.8rem">Compliance</strong>
               <p>Khởi động SOC 2 Type I, đăng ký Sandbox tài sản số</p>
@@ -1075,7 +1126,7 @@
         <div class="timeline-title">Growth</div>
         <div class="card" style="margin-top:12px">
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
-            <span class="compare-pill pill-blue">15 KH SaaS</span>
+            <span class="compare-pill pill-blue">8-10 KH SaaS</span>
             <span class="compare-pill pill-green">SOC 2 Type I achieved</span>
             <span class="compare-pill pill-purple">1-2 Enterprise pilot</span>
             <span class="compare-pill pill-amber">~$250K–$350K tích lũy</span>
@@ -1085,7 +1136,7 @@
               <p>Ra mắt Enterprise SaaS, Hybrid POC, Compliance Module (KYT)</p>
             </div>
             <div><strong style="color:var(--accent-purple);font-size:0.8rem">Sales</strong>
-              <p>Quỹ đầu tư & CTCK, Enterprise Pipeline 3-5 NH, 10+ khách Pro</p>
+              <p>Quỹ đầu tư & CTCK, 8-10 KH SaaS. Ký MoU và chạy PoC tích hợp Core Banking ngầm với 1-2 NH.</p>
             </div>
             <div><strong style="color:var(--accent-emerald);font-size:0.8rem">Compliance</strong>
               <p>SOC 2 Type I hoàn thành, khởi động ISO 27001</p>
@@ -1103,17 +1154,17 @@
         <div class="timeline-title">Consolidate (SaaS Focus)</div>
         <div class="card" style="margin-top:12px">
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
-            <span class="compare-pill pill-blue">30+ KH SaaS</span>
+            <span class="compare-pill pill-blue">~20 KH SaaS</span>
             <span class="compare-pill pill-green">SOC 2 Type II đang chạy</span>
             <span class="compare-pill pill-purple">1-2 PoC Enterprise</span>
-            <span class="compare-pill pill-amber">~$550K ARR</span>
+            <span class="compare-pill pill-amber">~$250K–$350K ARR</span>
           </div>
           <div class="card-grid card-grid-2" style="gap:12px">
             <div><strong style="color:var(--accent-blue);font-size:0.8rem">Product</strong>
               <p>Hybrid GA, Enterprise SaaS ổn định, Compliance Module production</p>
             </div>
             <div><strong style="color:var(--accent-purple);font-size:0.8rem">Sales</strong>
-              <p>Consolidate 30+ SaaS, khởi động PoC miễn phí với 1-2 NH, Enterprise pipeline</p>
+              <p>Consolidate ~20 SaaS, khởi động PoC miễn phí với 1-2 NH, Enterprise pipeline</p>
             </div>
             <div><strong style="color:var(--accent-emerald);font-size:0.8rem">Compliance</strong>
               <p>SOC 2 Type II đang chạy, CCSS Level 2, ISO 27001 khởi động</p>
@@ -1128,20 +1179,21 @@
       <div class="timeline-item">
         <div class="timeline-dot"></div>
         <div class="timeline-period" style="color:var(--accent-emerald)">Năm 2 – 2027</div>
-        <div class="timeline-title">Enterprise Scale & Break-even</div>
+        <div class="timeline-title">Enterprise Scale & Kích hoạt Channel Partners</div>
         <div class="card" style="margin-top:12px">
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">
             <span class="compare-pill pill-blue">50+ KH SaaS</span>
             <span class="compare-pill pill-green">2-3 Enterprise Hybrid close</span>
             <span class="compare-pill pill-purple">$1.5M+ ARR</span>
-            <span class="compare-pill pill-amber">🎯 Break-even Q2-Q3/2027</span>
+            <span class="compare-pill pill-amber">🎯 Break-even Q4/2027-Q1/2028</span>
           </div>
           <div class="card-grid card-grid-2" style="gap:12px">
             <div><strong style="color:var(--accent-blue);font-size:0.8rem">Product</strong>
               <p>Tokenization add-on, White-label Platform, Multi-region deployment</p>
             </div>
             <div><strong style="color:var(--accent-purple);font-size:0.8rem">Sales</strong>
-              <p>Close 2-3 Enterprise Hybrid ($300K-$500K), mid-market expansion, channel partners</p>
+              <p>Close 2-3 Enterprise Hybrid ($300K-$500K). Hợp tác System Integrators (FPT IS, CMC...) bán chéo Module
+                Custody vào dự án Core Banking.</p>
             </div>
             <div><strong style="color:var(--accent-emerald);font-size:0.8rem">Compliance</strong>
               <p>SOC 2 Type II hoàn tất, ISO 27001 achieved, CCSS Level 3</p>
@@ -1171,28 +1223,28 @@
           </thead>
           <tbody>
             <tr>
-              <td>Essential SaaS</td>
-              <td>$7,500</td>
+              <td>Essential</td>
+              <td>$4,500</td>
+              <td>$13,500</td>
               <td>$22,500</td>
-              <td>$45,000</td>
-              <td>$67,500</td>
-              <td class="table-highlight">$142,500</td>
+              <td>$27,000</td>
+              <td class="table-highlight">$67,500</td>
             </tr>
             <tr>
-              <td>Pro SaaS</td>
+              <td>Pro</td>
               <td>$0</td>
-              <td>$18,000</td>
+              <td>$9,000</td>
+              <td>$27,000</td>
               <td>$45,000</td>
-              <td>$72,000</td>
-              <td class="table-highlight">$135,000</td>
+              <td class="table-highlight">$81,000</td>
             </tr>
             <tr>
               <td>Enterprise SaaS</td>
               <td>$0</td>
               <td>$0</td>
+              <td>$15,000</td>
               <td>$30,000</td>
-              <td>$60,000</td>
-              <td class="table-highlight">$90,000</td>
+              <td class="table-highlight">$45,000</td>
             </tr>
             <tr>
               <td>Enterprise Hybrid</td>
@@ -1204,27 +1256,27 @@
             </tr>
             <tr>
               <td>Setup Fees</td>
-              <td>$7,500</td>
-              <td>$17,500</td>
-              <td>$25,000</td>
-              <td>$20,000</td>
-              <td class="table-highlight">$70,000</td>
+              <td>$5,000</td>
+              <td>$10,000</td>
+              <td>$15,000</td>
+              <td>$10,000</td>
+              <td class="table-highlight">$40,000</td>
             </tr>
             <tr>
               <td>Usage/Volume Fees</td>
               <td>$0</td>
-              <td>$5,000</td>
+              <td>$2,500</td>
+              <td>$8,000</td>
               <td>$15,000</td>
-              <td>$25,000</td>
-              <td class="table-highlight">$45,000</td>
+              <td class="table-highlight">$25,500</td>
             </tr>
             <tr style="background:rgba(59,130,246,0.08)">
               <td><strong>Tổng Quý</strong></td>
-              <td><strong>$15,000</strong></td>
-              <td><strong>$63,000</strong></td>
-              <td><strong>$160,000</strong></td>
-              <td><strong>$244,500</strong></td>
-              <td style="color:var(--accent-blue);font-weight:800;font-size:1.1rem"><strong>$482,500</strong></td>
+              <td><strong>$9,500</strong></td>
+              <td><strong>$35,000</strong></td>
+              <td><strong>$87,500</strong></td>
+              <td><strong>$127,000</strong></td>
+              <td style="color:var(--accent-blue);font-weight:800;font-size:1.1rem"><strong>$259,000</strong></td>
             </tr>
           </tbody>
         </table>
@@ -1235,7 +1287,7 @@
     <div class="card reveal" style="margin-top:32px">
       <h3 style="margin-bottom:4px">📊 MRR vs Burn Rate (Dự phóng 24 tháng)</h3>
       <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:16px">Giao điểm = Break-even point · Dự kiến
-        Q2-Q3/2027</p>
+        Q4/2027–Q1/2028</p>
       <div class="mrr-chart-container">
         <canvas id="mrrChart"></canvas>
       </div>
@@ -1277,16 +1329,17 @@
         <div style="font-size:0.9rem;color:var(--text-muted);margin-bottom:8px">Break-even dự kiến</div>
         <div
           style="font-size:2.5rem;font-weight:800;background:var(--gradient-main);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">
-          Q2-Q3/2027</div>
-        <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:12px">Năm 1: SaaS recurring ~$482K – nuôi
-          quân & xây dựng pipeline. Năm 2: Enterprise Hybrid chốt deal. Runway cần: <strong>18-24 tháng</strong>.</p>
+          Q4/2027–Q1/2028</div>
+        <p style="color:var(--text-secondary);font-size:0.85rem;margin-top:12px">Năm 1 tập trung chứng minh sản phẩm &
+          nuôi pipeline Enterprise. Yêu cầu ngân sách sinh tồn (Runway) phải đảm bảo <strong>24 – 30 tháng</strong> để
+          chờ chốt deal Hybrid.</p>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <p><strong>BitVi</strong> – Đề Xuất Chiến Lược Kinh Doanh Toàn Diện | Phiên bản 3.0 | 14/02/2026</p>
+    <p><strong>BitVi</strong> – Đề Xuất Chiến Lược Kinh Doanh Toàn Diện | Phiên bản 4.0 (CEO Review) | 21/02/2026</p>
     <p style="margin-top:8px;font-size:0.8rem">Tổng hợp dựa trên phân tích chiến lược, VRC Whitepaper, và nghiên cứu thị
       trường custody toàn cầu</p>
   </footer>

@@ -94,10 +94,10 @@ function renderMRRChart(canvas) {
   const months = Array.from({ length: 24 }, (_, i) => i + 1);
   // MRR growth: starts slow, ramps up (SaaS Year 1, then Enterprise kicks in Year 2)
   const mrr = [
-    2, 5, 8, 12, 17, 22, 28, 33, 38, 42, 46, 50,     // Year 1: SaaS ramp
-    55, 62, 70, 80, 92, 105, 118, 130, 140, 148, 155, 160  // Year 2: Enterprise
+    1, 3, 5, 7, 10, 14, 17, 20, 23, 26, 30, 33,     // Year 1: SaaS ramp (~$259K)
+    38, 44, 50, 58, 68, 80, 95, 110, 125, 138, 150, 160  // Year 2: Enterprise
   ];
-  const burn = Array(24).fill(55); // ~$55K/month burn
+  const burn = Array(24).fill(45); // ~$45K/month burn (conservative)
 
   const pad = { top: 40, right: 30, bottom: 45, left: 55 };
   const gW = W - pad.left - pad.right;
@@ -179,9 +179,9 @@ function renderMRRChart(canvas) {
       ctx.fill();
     }
 
-    // Break-even marker (around month 16-17)
-    if (pts >= 16) {
-      const bx = xScale(15), by = yScale(burn[15]);
+    // Break-even marker (around month 20-21)
+    if (pts >= 19) {
+      const bx = xScale(18), by = yScale(burn[18]);
       ctx.beginPath(); ctx.arc(bx, by, 6, 0, Math.PI * 2);
       ctx.fillStyle = '#10b981'; ctx.fill();
       ctx.strokeStyle = '#0a0e1a'; ctx.lineWidth = 2; ctx.stroke();
@@ -207,7 +207,7 @@ function renderMRRChart(canvas) {
       ctx.fillStyle = '#3b82f6'; ctx.font = 'bold 12px Inter'; ctx.textAlign = 'left';
       ctx.fillText('● MRR', pad.left + 10, pad.top - 15);
       ctx.fillStyle = '#f43f5e';
-      ctx.fillText('- - Burn Rate (~$55K/m)', pad.left + 80, pad.top - 15);
+      ctx.fillText('- - Burn Rate (~$45K/m)', pad.left + 80, pad.top - 15);
     }
   }
   animate();
